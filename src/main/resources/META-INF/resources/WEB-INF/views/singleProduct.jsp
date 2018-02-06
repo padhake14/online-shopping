@@ -27,7 +27,7 @@
 		
 			<div class="thumbnail">
 							
-				<img src="${images}/${product.code}.jpg" class="img img-responsive"/>
+				<img src="/resources/images/${product.code}.jpg" class="img img-responsive"/>
 						
 			</div>
 		
