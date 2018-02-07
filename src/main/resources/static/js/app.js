@@ -112,4 +112,15 @@ $(function() {
 			
 		});
 	}
+	
+	
+	/*------*/
+	/* for fading out the alert message after 3 seconds */
+	$alert = $('.alert');
+	if($alert.length) {
+		setTimeout(function() {
+	    	$alert.fadeOut('slow');
+		   }, 3000
+		);		
+	}
 });
