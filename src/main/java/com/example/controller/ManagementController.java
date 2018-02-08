@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.dao.CategoryDAO;
@@ -51,7 +53,27 @@ public class ManagementController {
 			if(operation.equals("product")) {
 				mv.addObject("message","Product submitted sucessfullt");
 			}
+			else if(operation.equals("category")) {
+				mv.addObject("message","Category submitted sucessfullt");
+
+			}
 		}
+			
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="{id}/product/", method=RequestMethod.GET)
+	public ModelAndView ShowEditProduct(@PathVariable int id) {		
+
+		ModelAndView mv = new ModelAndView("page");	
+		mv.addObject("userClickManageProduct",true);
+		mv.addObject("title","Manage Products");		
+		
+		//fetch id from database
+		Product nProduct = productDAO.get(id);
+		//set the product fetch from database
+		mv.addObject("product",nProduct);
 			
 		return mv;
 		
@@ -83,9 +105,40 @@ public class ManagementController {
 		
 	}
 	
+	@RequestMapping(value="/product/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody
+	public String handleProductActivation(@PathVariable int id) {
+		//is going to fetch from the datbase
+		Product product = productDAO.get(id);
+		boolean isActive = product.isActive();
+		//activating and deactivating based on the active field
+		product.setActive(!product.isActive());
+		
+		//updating the prouct
+		productDAO.update(product);
+		
+		
+		return (isActive)? "you have sucessfully deactivated the product based on id" +product.getId() : 
+			"you have sucessfully activated the product based on id" +product.getId();
+	}
+
+	//to handel catgeory submission
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCatgeorySubmission(@ModelAttribute Category category) {
+		categoryDAO.add(category);
+		return "redirect:/manage/products?operation=category"; 
+		
+	}
+	
+	
 	@ModelAttribute("categories") 
 	public List<Category> getCategories() {
 		return categoryDAO.list();
+	}
+	
+	@ModelAttribute("category") 
+	public Category getCategory() {
+		return new Category() ;
 	}
 
 }

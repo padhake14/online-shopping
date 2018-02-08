@@ -13,7 +13,7 @@ import ch.qos.logback.core.util.FileUtil;
 
 public class FileUploadUtility {
 	
-	private static final String ABS_PATH = "/home/parag/git/online-shopping/src/main/resources/static/images";
+	private static final String ABS_PATH = "D:\\eclipse-jee-oxygen-1a-win32-x86_64\\eommarce\\online-shopping\\src\\main\\resources\\static\\images";
 	private static String REAL_PATH = "";
 	private static final Logger logger = LoggerFactory.getLogger(FileUtil.class);
 	public static void uploadFile(HttpServletRequest request, MultipartFile file, String code) {
