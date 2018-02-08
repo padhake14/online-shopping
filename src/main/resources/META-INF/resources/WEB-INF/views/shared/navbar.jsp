@@ -1,25 +1,38 @@
 <!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="/home">Online Shopping</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active" id="" ><a class="nav-link" href="/home">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item" id="about"><a class="nav-link" href="/about">About </a></li>
-					<li class="nav-item" id="listProducts"><a class="nav-link" href="/show/all/products">View Products</a>
-					</li>
-					<li class="nav-item" id="manageProducts"><a class="nav-link" href="/manage/products">Manage Products</a>
-					</li>
-					<li class="nav-item" id="contact"><a class="nav-link" href="/contact">Contact</a>
-					</li>
-				</ul>
-			</div>
+			<a class="navbar-brand" href="/home">Online Shopping</a>
 		</div>
-	</nav>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li id="about"><a href="/about">About</a></li>
+
+				<li id="contact"><a href="/contact">Contact</a></li>
+
+				<li id="listProducts"><a href="/show/all/products">View
+						Products</a></li>
+
+				<li id="manageProduct"><a href="/manage/products">Manage
+						Product</a></li>
+		
+						
+
+			</ul>
+
+
+
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container -->
+</nav>

@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import com.example.dao.CategoryDAO;
 import com.example.dao.ProductDAO;
 import com.example.dto.Category;
 import com.example.dto.Product;
+import com.example.util.FileUploadUtility;
+import com.example.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -56,7 +59,10 @@ public class ManagementController {
 	
 	//Handling products submission
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mproduct,BindingResult results,Model model) {		
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct,BindingResult results,Model model,HttpServletRequest request) {		
+		
+		new ProductValidator().validate(mProduct,results);
+		
 		//check if there are any error
 		if(results.hasErrors()) {
 			
@@ -65,11 +71,14 @@ public class ManagementController {
 			model.addAttribute("message","Validation failed for product submission!");
 			return "page";
 		}
-		
-		
-		
 		//create a new product record
-		productDAO.add(mproduct);
+		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			//FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+		}
+		
 		return "redirect:/manage/products?operation=product"; 
 		
 	}

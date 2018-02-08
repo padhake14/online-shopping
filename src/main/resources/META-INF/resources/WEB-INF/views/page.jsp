@@ -20,6 +20,7 @@
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/bootstrap-readable-theme.css">
 <link rel="stylesheet" href="/resources/css/dataTables.bootstrap.css">
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="/resources/css/style.css">
@@ -61,12 +62,26 @@
 
 	</div>
 	<!-- Bootstrap core JavaScript -->
+			<script src="/resources/js/jquery.js"></script>
 
-	<script type="text/javascript" src="/resources/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/resources/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="/resources/js/dataTables.bootstrap.js"></script>
-	<script type="text/javascript" src="/resources/js/app.js"></script>
+		<script src="/resources/js/jquery.validate.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="/resources/js/bootstrap.min.js"></script>
+		
+		<!-- DataTable Plugin -->
+		<script src="/resources/js/jquery.dataTables.js"></script>
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="/resources/js/dataTables.bootstrap.js"></script>
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="/resources/js/bootbox.min.js"></script>
+		
+		<script src="/resources/js/app.js"></script>
+	
+	
+
 
 </body>
 
