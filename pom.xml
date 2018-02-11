@@ -88,7 +88,11 @@
 			<artifactId>logback-classic</artifactId>
 
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.4.5.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
